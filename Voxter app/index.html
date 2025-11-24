@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Voxtel app | junior code</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>Voxtel app</h2>
+    </nav>
+
+    <div class="inicio">
+        Voxtel app es una aplicacion para hacer apuntes de cosas importantes.
+    </div>
+
+    <div class="targetas">
+        <button id="addCardBtn">Crear tarjeta</button>
+        <div id="cardsContainer"></div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('addCardBtn');
+        const container = document.getElementById('cardsContainer');
+
+        btn.addEventListener('click', () => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const textarea = document.createElement('textarea');
+            textarea.placeholder = 'Escribe tu nota...';
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Eliminar';
+            deleteBtn.className = 'delete';
+
+            deleteBtn.onclick = () => card.remove();
+
+            card.appendChild(textarea);
+            card.appendChild(deleteBtn);
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
